@@ -117,3 +117,20 @@ browser.get('http://nostarch.com')
 htmlElem = browser.find_element_by_tag_name('html')
 htmlElem.send_keys(Keys.END)
 htmlElem.send_keys(Keys.HOME)
+
+'''
+Clicando nos botões do navegador
+
+O selenium também é capaz de simular cliques em diversos botões do navegador por meio dos métodos a seguir:
+
+    browser.back() - Clica no botão Back (Retornar)
+    browser.forward()  - Clica no botão Forwarch (avançar)
+    browser.refresh() - Clica no botão refresh (Atualizar)
+    browser.quit() - Clica no botão close Windows (Fechar janela)
+'''
+
+# Mais informações sobre o selenium
+'''
+	http://seleniumpython.readthedocs.org/.
+
+'''
