@@ -47,3 +47,41 @@ resultPdfFile = open('rotatedPage.pdf', 'wb')
 pdfWriter.write(resultPdfFile)
 resultPdfFile.close()
 minutesFile.close()
+
+'''
+Sobrepondo páginas
+'''
+
+minutesFile = open('meetingminutes.pdf', 'rb')
+pdfReader = PyPDF2.PdfFileReader(minutesFile)
+minutesFirstPage = pdfReader.getPage(0)
+pdfWaterMarkReader = PyPDF2.PdfFileReader(open('watermark.pdf', 'rb'))
+minutesFirstPage.mergePage(pdfWaterMarkReader.getPage(0))
+pdfWriter = PyPDF2.PdfFileWriter()
+pdfWriter.addPage(minutesFirstPage)
+
+for pageNum in range(1, pdfReader.numPages):
+    pageObj = pdf1Reader.getPage(pageNum)
+    pdfWriter.addPage(pageObj)
+
+resultPdfFile = open('watermarkedCover.pdf', 'wb')
+pdfWriter.write(resultPdfFile)
+minutesFile.close()
+resultPdfFile.close()
+
+
+'''
+Criptografando pdfs
+'''
+
+pdfFile = open('meetingminutes.pdf', 'rb')
+pdfReader = PyPDF2.PdfFileReader(pdfFile)
+pdfWriter = PyPDF2.PdfFileWriter()
+for pageNum in range(pdfReader.numPages):
+    pdfWriter.addPage(pdfReader.getPage(pageNum))
+
+pdfWriter.encrypt('swordfish')
+resultPdf = open('encryptedminutes.pdf', 'wb')
+pdfWriter.write(resultPdf)
+resultPdf.close()
+
