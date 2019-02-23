@@ -1,0 +1,7 @@
+SMTP
+
+Assim como o HTTP é o protocolo usado pelos computadores para enviar páginas web pela internet, o SMTP (Simple Mail Transfer Protocol) é o protocolo usado para
+enviar emails. O SMTP define o modo como as mensagens de email devem ser formatadas, criptografadas e trocadas entre servidores de emails, além de todos os demais
+detalhes com os quais seu computador deve lidar após você clicar em Send. Contudo não é preciso conhecer esses detalhes técnicos, pois o módulo smtplib do Python os 
+simplifica por meio de algumas funções.
+O SMTP simplesmente cuida de enviar emails a outras pessoas.
